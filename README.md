@@ -70,21 +70,6 @@ Use:
 model.save("lstm_autoencoder.h5")
 pickle.dump(scaler, open("scaler.pkl", "wb"))
 ```
-
-## **Troubleshooting**
-### **Common Issues & Fixes**
-1. **ModuleNotFoundError: No module named 'streamlit'**
-   - Run: `pip install streamlit`
-
-2. **Database connection error**
-   - Check MySQL is running and credentials are correct.
-
-3. **FileNotFoundError: CAN.csv not found**
-   - Ensure the dataset is in the same directory as `app2.py`.
-
-4. **Model loading error**
-   - Ensure `lstm_autoencoder.h5` and `battery.h5` exist.
-
 ---
 
 ## **Usage Guide**
@@ -132,7 +117,7 @@ pickle.dump(scaler, open("scaler.pkl", "wb"))
    - Detects spoofed or tampered battery readings.
 
 ### **Dataset**
-- The app uses **CAN.csv** as the dataset.
+- The app uses **[CAN.csv]([https://www.google.com](https://www.kaggle.com/datasets/ankitrajsh/can-bus-anomaly-detection-dataset))** as the dataset.
 - It contains sensor readings such as **accelerometer values, current, pressure, voltage, and temperature**.
 
 ### **Security Considerations**
