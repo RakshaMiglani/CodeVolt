@@ -1,7 +1,7 @@
 ### SensorShield: Leveraging AI-Driven Cybersecurity to Safeguard Sensor Networks in Electric Vehicles
 
 ### Overview  
-CodeVolt is a **real-time voltage anomaly detection system** using an **LSTM-based autoencoder**. It detects anomalies in CAN (Control area network) and provides **attack simulations** for different cyber threats, including **fuzzy, spoofing, replay, and DoS attacks**.  
+CodeVolt is a **real-time anomaly detection system** using an **LSTM-based autoencoder**. It detects anomalies in CAN (Control area network) and provides **attack simulations** for different cyber threats, including **fuzzy, spoofing, replay, and DoS attacks**.  
 
 ### Features  
 - **Pretrained LSTM Model** (`lstm_autoencoder.h5`) for anomaly detection  
