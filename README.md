@@ -1,13 +1,15 @@
-### SensorShield: Leveraging AI-Driven Cybersecurity to Safeguard Sensor Networks in Electric Vehicles
+# SensorShield: Leveraging AI-Driven Cybersecurity to Safeguard Sensor Networks in Electric Vehicles
 
 ### Overview  
-CodeVolt is a **real-time anomaly detection system** using an **LSTM-based autoencoder**. It detects anomalies in CAN (Control area network) and provides **attack simulations** for different cyber threats, including **fuzzy, spoofing, replay, and DoS attacks**.  
+CodeVolt SensorShield is a Streamlit-based web application designed for **cybersecurity in electric vehicles (EVs)** using AI-driven anomaly detection techniques. The website provides attack simulations, One class-SVM and LSTM based real-time anomaly detection in CAN (Control area Network), LSTM-based battery spoofing detection, and live anomaly visualization to enhance EV security. 
 
 ### Features  
-- **Pretrained LSTM Model** (`lstm_autoencoder.h5`) for anomaly detection  
-- **Pretrained LSTM voltage analysis model** (`battery.h5`) for detecting attacks on battery  
-- **Attack generation module** for cybersecurity threat simulations  
-- **Interactive data visualization** with Matplotlib  animations
+- **Secure Login System** for EV users.
+- **Synthetic Attack Generator** for CAN Bus security testing.
+- **Real-time anomaly detection** using **One-Class SVM**.
+- **Deep Learning-based anomaly detection** using a pre trained **LSTM Autoencoder**(`lstm_autoencoder.h5`).
+- **Live Graph Visualization** of anomaly scores.
+- **Battery Spoofing Detection** using a pre-traine LSTM model(`battery.h5`).
 
 ### Project Structure  
 ```bash
@@ -22,7 +24,7 @@ CodeVolt/
 │── 📄 README.md           # Project documentation
 │── 📄 License
 ```
-
+---
 ###  Installation & Setup  
 1. **Clone the repository**  
 ```sh
@@ -40,31 +42,115 @@ pip install -r requirements.txt
 ```
 4. **Run the anomaly detection script**  
 ```sh
-python app2.py
+streamlit run app2.py
+```
+## **Customization**
+### **Modify Database Credentials**
+Update the following function in `app2.py`:
+```python
+def get_db_connection():
+    return mysql.connector.connect(
+        host="your_host",
+        user="your_username",
+        password="your_password",
+        database="your_database"
+    )
 ```
 
-### How It Works  
-1. Loads **data** from `CAN.csv`  
-2. **Preprocesses** the data using `scalar.pkl`  
-3. Loads the pretrained **LSTM model (`lstm_autoencoder.h5`)**  
-4. Detects anomalies based on **reconstruction error**  
-5. Generates **attack simulations** and identifies voltage anomalies
-6. Loads the pretrained **LSTM model (`battery.h5`)**  
-7. Detects attacks on battery based on **time series voltage data**  
-8. Visualises the anomolus data using animated graphs from mathplotlib
+### **Change Dataset**
+Replace `CAN.csv` with your own dataset.
 
-### Attack Simulations  
-Supports:  
-- **Fuzzy Attack**  
-- **Spoofing Attack**  
-- **Replay Attack**  
-- **DoS Attack**
+### **Modify LSTM Model**
+Retrain and replace:
+- `lstm_autoencoder.h5`
+- `battery.h5`
+
+Use:
+```python
+model.save("lstm_autoencoder.h5")
+pickle.dump(scaler, open("scaler.pkl", "wb"))
+```
+
+## **Troubleshooting**
+### **Common Issues & Fixes**
+1. **ModuleNotFoundError: No module named 'streamlit'**
+   - Run: `pip install streamlit`
+
+2. **Database connection error**
+   - Check MySQL is running and credentials are correct.
+
+3. **FileNotFoundError: CAN.csv not found**
+   - Ensure the dataset is in the same directory as `app2.py`.
+
+4. **Model loading error**
+   - Ensure `lstm_autoencoder.h5` and `battery.h5` exist.
+
+---
+
+## **Usage Guide**
+### **Login Page**
+1. Enter your **Vehicle Number** and **Password**.
+2. Click **Login**.
+3. If credentials are valid, you will be redirected to the **dashboard**.
+
+## **Dashboard Features**
+### **1. Attack Generation**
+- Select an **Attack Type**: `fuzzy`, `spoofing`, `replay`, `DoS`.
+- Enter the **number of attack samples**.
+- Click **Generate Attack Data**.
+- Download the attack data as a CSV.
+
+### **2️. Real-time Anomaly Detection**
+- **Input sensor values manually** or **simulate live data**.
+- Uses **One-Class SVM** for anomaly detection.
+- Displays **Anomaly Score** and detection status.
+
+### **3️. LSTM-based Anomaly Detection**
+- Upload a pre-trained LSTM model (`lstm_autoencoder.h5`).
+- The model analyzes sensor data for **anomalous patterns**.
+- Generates **reconstruction error distribution** and flags anomalies.
+
+### **4️ Battery Spoofing Detection**
+- Uses an **LSTM-based model** (`battery.h5`) to detect voltage anomalies.
+- Generates **attack data** and detects inconsistencies in **EV battery voltage**.
+
+### **5️. Real-Time Anomaly Visualization**
+- Displays **live graphs** of anomaly scores.
+- Continuously updates anomaly detection results in real time.
+
+
+## **Technical Details**
+### **Machine Learning Models**
+1. **One-Class SVM (OC-SVM)**:
+   - Detects **anomalous CAN bus sensor readings**.
+   - Trained on normal sensor data to classify outliers.
+2. **LSTM Autoencoder**:
+   - Learns **normal vehicle behavior** and reconstructs expected values.
+   - High reconstruction error indicates **anomalous activity**.
+3. **Battery Spoofing Detector**:
+   - Uses **LSTM to analyze voltage patterns**.
+   - Detects spoofed or tampered battery readings.
+
+### **Dataset**
+- The app uses **CAN.csv** as the dataset.
+- It contains sensor readings such as **accelerometer values, current, pressure, voltage, and temperature**.
+
+### **Security Considerations**
+- **Passwords are stored securely in MySQL.**
+- **Session state is used** to prevent unauthorized dashboard access.
+- **Anomaly scores and attack data are computed dynamically**, ensuring robustness.
+
+---
 
 ### Dependencies  
-- Python 3.8+  
-- TensorFlow  
-- NumPy, Pandas  
-- Matplotlib  
+- Python 3.8+
+- MySQL (for login authentication)
+- Streamlit
+- TensorFlow
+- Scikit-learn
+- Pandas, NumPy, Matplotlib
+- Requests (for fetching online resources)
+- Pickle (for saving and loading machine learning models)
 
 ### License  
 MIT License  
