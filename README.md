@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ```
 4. **Run the anomaly detection script**  
 ```sh
-python app2.py
+streamlit run app2.py
 ```
 ## **Customization**
 ### **Modify Database Credentials**
