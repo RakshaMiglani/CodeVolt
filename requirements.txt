@@ -1,0 +1,9 @@
+mysql
+Streamlit
+TensorFlow
+scikit-learn
+pandas
+NumPy
+Matplotlib
+pickle5
+graphviz
