@@ -7,3 +7,4 @@ NumPy
 Matplotlib
 pickle5
 graphviz
+streamlit-lottie
