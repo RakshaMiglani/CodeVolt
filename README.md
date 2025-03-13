@@ -11,14 +11,16 @@ CodeVolt SensorShield is a Streamlit-based web application designed for **cybers
 - **Live Graph Visualization** of anomaly scores.
 - **Battery Spoofing Detection** using a pre-traine LSTM model(`battery.h5`).
 
+### Preview 
+[![Video Preview](Video.png)](https://drive.google.com/file/d/1rVNMi8UYEs9T_Mle0LMCWjRgiMvod9mQ/view?usp=sharing)
+
 ### Project Structure  
 ```bash
 CodeVolt/
 │── 📄 lstm_autoencoder.h5          # Pretrained LSTM model for anomoly detection
 │── 📄 battery.h5          # Pretrained LSTM model for detecting attacks on battery
-│── 📄 CAN.csv             # Input dataset            
-│── 📄 app1.py            
-│── 📄 app2.py            # Main script for running the app
+│── 📄 CAN.csv             # Input dataset                        
+│── 📄 app.py            # Main script for running the app
 │── 📄 requirements.txt    # Dependencies
 │── 📄 scalar.pkl          
 │── 📄 README.md           # Project documentation
@@ -42,7 +44,7 @@ pip install -r requirements.txt
 ```
 4. **Run the anomaly detection script**  
 ```sh
-streamlit run app2.py
+streamlit run app.py
 ```
 ## **Customization**
 ### **Modify Database Credentials**
