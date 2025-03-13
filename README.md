@@ -11,6 +11,9 @@ CodeVolt SensorShield is a Streamlit-based web application designed for **cybers
 - **Live Graph Visualization** of anomaly scores.
 - **Battery Spoofing Detection** using a pre-traine LSTM model(`battery.h5`).
 
+### Preview 
+https://drive.google.com/file/d/1rVNMi8UYEs9T_Mle0LMCWjRgiMvod9mQ/view?usp=sharing
+
 ### Project Structure  
 ```bash
 CodeVolt/
