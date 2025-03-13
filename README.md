@@ -19,9 +19,8 @@ CodeVolt SensorShield is a Streamlit-based web application designed for **cybers
 CodeVolt/
 │── 📄 lstm_autoencoder.h5          # Pretrained LSTM model for anomoly detection
 │── 📄 battery.h5          # Pretrained LSTM model for detecting attacks on battery
-│── 📄 CAN.csv             # Input dataset            
-│── 📄 app1.py            
-│── 📄 app2.py            # Main script for running the app
+│── 📄 CAN.csv             # Input dataset                        
+│── 📄 app.py            # Main script for running the app
 │── 📄 requirements.txt    # Dependencies
 │── 📄 scalar.pkl          
 │── 📄 README.md           # Project documentation
@@ -45,7 +44,7 @@ pip install -r requirements.txt
 ```
 4. **Run the anomaly detection script**  
 ```sh
-streamlit run app2.py
+streamlit run app.py
 ```
 ## **Customization**
 ### **Modify Database Credentials**
